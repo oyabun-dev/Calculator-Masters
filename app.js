@@ -1,0 +1,1 @@
+console.log("Kon'nichiwa, Sekai!");
