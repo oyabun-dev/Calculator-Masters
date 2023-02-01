@@ -1,12 +1,219 @@
 :root {
-    --color-primary: #ff0000;
-    --color-secondary: #00ff00;
-    --color-tertiary: #0000ff;
+    --bg-light: #f1f1f1;
+    --bg-dark: #333;
+    --text-light: #fff;
+    --text-dark: #000;
+    --operator-light: orange;
+    --operator-dark: rgb(71, 66, 66);
+    --operator-light-hover: rgb(255, 196, 0);
+    --operator-dark-hover: rgb(80, 76, 76);
+    --digits-light: rgb(134, 134, 134);
+    --digits-dark: #3f2b40;
+    --digits-light-hover: rgba(134, 134, 134, 0.5);
+    --digits-dark-hover: #563858;
+    --digits-text-light: #f1f1ff;
+    --digits-text-dark: #f1f1f1;
+    --operator-text-light: #000;
+    --operator-text-dark: #fff;
 }
 * {
     box-sizing: border-box;
+    transition: all 0.5s ease-in-out;
 }
 body {
     padding: 0;
     margin: 0;
+    background-color: var(--bg-light);
+    font-family: 'Roboto', sans-serif;
+    transition: background 0.5s ease-in-out;
+}
+div.title-light h1{
+    color: var(--text-light);
+    padding: 10px;
+    text-align: center;
+    font-size: 7vmin;
+}
+div.title-dark h1{
+    color: var(--text-dark);
+    padding: 10px;
+    text-align: center;
+    font-size: 7vmin;
+}
+div.light-dark-mode-button::before {
+    content: "🌞";
+    font-size: 1.5rem;
+    width: min-content;
+    border-radius: 100%;
+    position: absolute;
+    top: -.07rem;
+    left: 0;
+}
+div.light-dark-mode-button::after {
+    content: "🌚";
+    font-size: 1.5rem;
+    width: min-content;
+    border-radius: 100%;
+    position: absolute;
+    top: -.07rem;
+    right: 0;
+}
+div.light-dark-mode-button {
+    position: absolute;
+    right: 2vmin;
+    bottom: 2vmin;
+    display: inline-block;
+    width: 4rem;
+    height: 2rem;
+    border-radius: 5rem;
+    border: 1px solid #ccc;
+    background-color:  #EBEBFF;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5) inset;
+}
+div.light-dark-mode-button div.disc{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+    width: 2rem;
+    height: 1.9rem;
+    border-radius: 100%;
+    border: 4px solid #ffffff;
+    background-color:  #333;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5) ;
+}
+div.light-dark-mode-button:hover {
+    cursor: pointer;
+}
+div.calculator-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: #000;
+    height: 70vh; */
+}
+div.calculator-container div.calculator-shape {
+    height: 75vh;
+    width: 27vw;
+    min-width: 300px;
+    border-radius: 2rem;
+    background-color: #222;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 4px solid black;
+    box-shadow: 7px 7px 10px rgba(0, 0, 0, 0.9) ;
+}
+div.calculator-container div.calculator-shape div.calculator-screen {
+    height: 17vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 1rem;
+}
+button {
+    transition: background 0.3s ease-in-out;
+}
+div.calculator-container div.calculator-shape div.calculator-screen input.calculator-screen-input-light {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    border: 4px solid #333;
+    border-radius: 1rem;
+    outline: none;
+    margin-top: 4vh;
+    font-size: 2.5rem;
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    height: 17vh;
+    text-align: right;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.7) inset;
+}
+.calculator-screen-input-dark {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    border: 4px solid #333;
+    border-radius: 1rem;
+    outline: none;
+    margin-top: 4vh;
+    font-size: 2.5rem;
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    height: 17vh;
+    text-align: right;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.7) inset;
+}
+div.calculator-container div.calculator-shape div.calculator-keys {
+    height: 55vh;
+    width: 100%;
+    padding: .9rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0rem 0rem 2rem 2rem;
+}
+div.calculator-container div.calculator-shape div.calculator-keys div.row {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+div.calculator-container div.calculator-shape div.calculator-keys div.row:last-child {
+    border-radius: 0rem 0rem 2rem 2rem;
+}
+div.calculator-container div.calculator-shape div.calculator-keys div.row button.digits-light {
+    background-color: var(--digits-light);
+    color: var(--digits-text-light);
+    font-size: 1.5rem;
+    height: 100%;
+    flex: 1;
+}
+div.calculator-container div.calculator-shape div.calculator-keys div.row button.digits-light:hover {
+    cursor: pointer;
+    background-color: var(--digits-light-hover);
+}
+.row button.digits-dark {
+    background-color: var(--digits-dark);
+    color: var(--digits-text-dark);
+    font-size: 2.5rem;
+    height: 100%;
+    flex: 1;
+}
+.row button.digits-dark:hover {
+    cursor: pointer;
+    background-color: var(--digits-dark-hover);
+}
+div.calculator-container div.calculator-shape div.calculator-keys div.row button.operator-light {
+    background-color: var(--operator-light);
+    color: var(--operator-text-light);
+    font-size: 2rem;
+    width: 25%;
+    height: 100%;
+}
+div.calculator-container div.calculator-shape div.calculator-keys div.row button.operator-light:hover {
+    cursor: pointer;
+    background-color: var(--operator-light-hover);
+}
+.row button.operator-dark {
+    background-color: var(--operator-dark);
+    color: var(--operator-text-dark);
+    font-size: 2rem;
+    width: 25%;
+    height: 100%;
+}
+.row button.operator-dark:hover {
+    cursor: pointer;
+    background-color: var(--operator-dark-hover);
+}
+div.calculator-container div.calculator-shape div.calculator-keys div.row.last-row button.equal-sign{
+    border-radius: 0rem 0rem 1rem 0rem;
+}
+div.calculator-container div.calculator-shape div.calculator-keys div.row.last-row button.digits-light{
+    border-radius: 0rem 0rem 0rem 1rem;
+}
+div.calculator-container div.calculator-shape div.calculator-keys div.row.last-row button.digits-dark{
+    border-radius: 0rem 0rem 0rem 1rem;
 }
