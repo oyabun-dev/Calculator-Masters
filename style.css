@@ -23,17 +23,22 @@
 body {
     padding: 0;
     margin: 0;
-    background-color: var(--bg-light);
     font-family: 'Roboto', sans-serif;
-    transition: background 0.5s ease-in-out;
+    transition: background 1s ease-in-out;
 }
-div.title-light h1{
+body.light {
+    background-color: var(--bg-light);
+}
+body.dark {
+    background-color: var(--bg-dark);
+}
+div.title.light h1{
     color: var(--text-light);
     padding: 10px;
     text-align: center;
     font-size: 7vmin;
 }
-div.title-dark h1{
+div.title.dark h1{
     color: var(--text-dark);
     padding: 10px;
     text-align: center;
@@ -57,7 +62,7 @@ div.mode-button::after {
     top: -.07rem;
     right: 0;
 }
-div.mode-button {
+div.mode-button.light {
     position: absolute;
     right: 2vmin;
     bottom: 2vmin;
@@ -71,9 +76,35 @@ div.mode-button {
     padding: 10px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5) inset;
 }
-div.mode-button div.disc{
+div.mode-button.dark {
+    position: absolute;
+    right: 2vmin;
+    bottom: 2vmin;
+    display: inline-block;
+    width: 4rem;
+    height: 2rem;
+    border-radius: 5rem;
+    border: 1px solid #ccc;
+    background-color:  #222;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.8) inset;
+}
+div.mode-button div.disc.light{
     position: absolute;
     left: 0;
+    bottom: 0;
+    z-index: 2;
+    width: 2rem;
+    height: 1.9rem;
+    border-radius: 100%;
+    border: 4px solid #333;
+    background-color:  #fff;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5) ;
+}
+div.mode-button div.disc.dark{
+    position: absolute;
+    right: 0;
     bottom: 0;
     z-index: 2;
     width: 2rem;
@@ -90,8 +121,6 @@ div.calculator-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background-color: #000;
-    height: 70vh; */
 }
 div.calculator-container div.calculator-shape {
     height: 75vh;
@@ -116,7 +145,7 @@ div.calculator-container div.calculator-shape div.calculator-screen {
 button {
     transition: background 0.3s ease-in-out;
 }
-div.calculator-container div.calculator-shape div.calculator-screen input.calculator-screen-input-light {
+div.calculator-container div.calculator-shape div.calculator-screen input.calculator-screen-input.light {
     background-color: var(--bg-dark);
     color: var(--text-dark);
     border: 4px solid #333;
@@ -130,7 +159,7 @@ div.calculator-container div.calculator-shape div.calculator-screen input.calcul
     text-align: right;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.7) inset;
 }
-.calculator-screen-input-dark {
+.calculator-screen-input.dark {
     background-color: var(--bg-light);
     color: var(--text-light);
     border: 4px solid #333;
@@ -164,56 +193,56 @@ div.calculator-container div.calculator-shape div.calculator-keys div.row {
 div.calculator-container div.calculator-shape div.calculator-keys div.row:last-child {
     border-radius: 0rem 0rem 2rem 2rem;
 }
-div.calculator-container div.calculator-shape div.calculator-keys div.row button.digits-light {
+div.calculator-container div.calculator-shape div.calculator-keys div.row button.digits.light {
     background-color: var(--digits-light);
     color: var(--digits-text-light);
     font-size: 1.5rem;
     height: 100%;
     flex: 1;
 }
-div.calculator-container div.calculator-shape div.calculator-keys div.row button.digits-light:hover {
+div.calculator-container div.calculator-shape div.calculator-keys div.row button.digits.light:hover {
     cursor: pointer;
     background-color: var(--digits-light-hover);
 }
-.row button.digits-dark {
+.row button.digits.dark {
     background-color: var(--digits-dark);
     color: var(--digits-text-dark);
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     height: 100%;
     flex: 1;
 }
-.row button.digits-dark:hover {
+.row button.digits.dark:hover {
     cursor: pointer;
     background-color: var(--digits-dark-hover);
 }
-div.calculator-container div.calculator-shape div.calculator-keys div.row button.operator-light {
+div.calculator-container div.calculator-shape div.calculator-keys div.row button.operator.light {
     background-color: var(--operator-light);
     color: var(--operator-text-light);
     font-size: 2rem;
     width: 25%;
     height: 100%;
 }
-div.calculator-container div.calculator-shape div.calculator-keys div.row button.operator-light:hover {
+div.calculator-container div.calculator-shape div.calculator-keys div.row button.operator.light:hover {
     cursor: pointer;
     background-color: var(--operator-light-hover);
 }
-.row button.operator-dark {
+.row button.operator.dark {
     background-color: var(--operator-dark);
     color: var(--operator-text-dark);
     font-size: 2rem;
     width: 25%;
     height: 100%;
 }
-.row button.operator-dark:hover {
+.row button.operator.dark:hover {
     cursor: pointer;
     background-color: var(--operator-dark-hover);
 }
 div.calculator-container div.calculator-shape div.calculator-keys div.row.last-row button.equal-sign{
     border-radius: 0rem 0rem 1rem 0rem;
 }
-div.calculator-container div.calculator-shape div.calculator-keys div.row.last-row button.digits-light{
+div.calculator-container div.calculator-shape div.calculator-keys div.row.last-row button.digits.light{
     border-radius: 0rem 0rem 0rem 1rem;
 }
-div.calculator-container div.calculator-shape div.calculator-keys div.row.last-row button.digits-dark{
+div.calculator-container div.calculator-shape div.calculator-keys div.row.last-row button.digits.dark{
     border-radius: 0rem 0rem 0rem 1rem;
 }
