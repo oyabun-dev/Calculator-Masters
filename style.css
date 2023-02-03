@@ -1,8 +1,8 @@
 :root {
     --bg-light: #f1f1f1;
     --bg-dark: #333;
-    --text-light: #fff;
-    --text-dark: #000;
+    --text-light: #000;
+    --text-dark: #fff;
     --operator-light: orange;
     --operator-dark: rgb(71, 66, 66);
     --operator-light-hover: rgb(255, 196, 0);
@@ -39,7 +39,7 @@ div.title-dark h1{
     text-align: center;
     font-size: 7vmin;
 }
-div.light-dark-mode-button::before {
+div.mode-button::before {
     content: "🌞";
     font-size: 1.5rem;
     width: min-content;
@@ -48,7 +48,7 @@ div.light-dark-mode-button::before {
     top: -.07rem;
     left: 0;
 }
-div.light-dark-mode-button::after {
+div.mode-button::after {
     content: "🌚";
     font-size: 1.5rem;
     width: min-content;
@@ -57,7 +57,7 @@ div.light-dark-mode-button::after {
     top: -.07rem;
     right: 0;
 }
-div.light-dark-mode-button {
+div.mode-button {
     position: absolute;
     right: 2vmin;
     bottom: 2vmin;
@@ -71,7 +71,7 @@ div.light-dark-mode-button {
     padding: 10px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5) inset;
 }
-div.light-dark-mode-button div.disc{
+div.mode-button div.disc{
     position: absolute;
     left: 0;
     bottom: 0;
@@ -83,7 +83,7 @@ div.light-dark-mode-button div.disc{
     background-color:  #333;
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5) ;
 }
-div.light-dark-mode-button:hover {
+div.mode-button:hover {
     cursor: pointer;
 }
 div.calculator-container {
@@ -118,7 +118,7 @@ button {
 }
 div.calculator-container div.calculator-shape div.calculator-screen input.calculator-screen-input-light {
     background-color: var(--bg-dark);
-    color: var(--text-light);
+    color: var(--text-dark);
     border: 4px solid #333;
     border-radius: 1rem;
     outline: none;
@@ -132,7 +132,7 @@ div.calculator-container div.calculator-shape div.calculator-screen input.calcul
 }
 .calculator-screen-input-dark {
     background-color: var(--bg-light);
-    color: var(--text-dark);
+    color: var(--text-light);
     border: 4px solid #333;
     border-radius: 1rem;
     outline: none;
