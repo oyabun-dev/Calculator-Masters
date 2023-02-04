@@ -70,7 +70,7 @@ document.querySelector('.clear').addEventListener('click', () => {
 });
 
 
-// My first code
+// V1
 // let expression = "";
 // let result = "";
 // let operator = "";
