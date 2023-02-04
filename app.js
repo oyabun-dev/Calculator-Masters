@@ -31,76 +31,118 @@ modeBtn.addEventListener("click", () => {
 let expression = "";
 let result = "";
 let operator = "";
-let operatorPressed = false;
-let equalPressed = false;
 
 digitKeys.forEach((key) => {
-    key.addEventListener("click", () => {
-        if(equalPressed){
-            expression = "";
-            equalPressed = false;
-        }
-        if(expression.length < 20 && key.value != "clear" && key.value != "all-clear"){
+    key.addEventListener('click', () => {
+        if(expression.length <= 10 && key.value !== "clear" && key.value !== "all-clear") {
             expression += key.value;
             calculatorScreen.value = expression;
         }
-    });
+    })
 });
 
 operatorKeys.forEach((key) => {
-    key.addEventListener("click", () => {
-        if (key.value == "=") {
-            if(expression.length < 20){
-                let expressionArray = expression.split(operator);
-                if(expressionArray.length > 1){
-                    let num1 = parseInt(expressionArray[0]);
-                    let num2 = parseInt(expressionArray[1]);
-                    switch(operator){
-                        case "+":
-                            result = num1 + num2;
-                            break;
-                        case "-":
-                            result = num1 - num2;
-                            break;
-                        case "x":
-                            result = num1 * num2;
-                            break;
-                        case "/":
-                            result = num1 / num2;
-                            break;
-                        default:
-                            result = "Error";
-                    }
-                    expression = result;
-                    calculatorScreen.value = result;
-                    operatorPressed = false;
-                    equalPressed = true;
-                }
-            }
-        }else {
-            if(expression.length < 20){
-                if(operatorPressed){
-                    expression = expression.slice(0, expression.length - 1);
-                }
-                expression += key.value;
-                calculatorScreen.value = expression;
-                operatorPressed = true;
-                operator = key.value;
-            }
+    key.addEventListener('click', () => {
+        if (key.value !== "=" && expression.length > 0 ) {
+            operator = key.value;
+            expression += operator;
+            calculatorScreen.value = expression;
         }
-    });
+    })
 });
 
-document.querySelector(".all-clear").addEventListener("click", () => {
-    expression = "";
-    calculatorScreen.value = expression;
-    operatorPressed = false;
-    equalPressed = false;
-});
-
-document.querySelector(".clear").addEventListener("click", () => {
-    if(expression.length > 0){
-        expression = expression.slice(0, expression.length - 1);
-        calculatorScreen.value = expression;
+document.querySelector('.equal-sign').addEventListener('click', () => {
+    if (expression.length > 0) {
+        result = eval(expression);
+        calculatorScreen.value = result;
+        expression = "";
     }
 });
+
+document.querySelector('.all-clear').addEventListener('click', () => {
+    expression = "";
+    calculatorScreen.value = expression;
+});
+
+document.querySelector('.clear').addEventListener('click', () => {
+    expression = expression.slice(0, expression.length - 1);
+    calculatorScreen.value = expression;
+});
+
+
+// My first code
+// let expression = "";
+// let result = "";
+// let operator = "";
+// let operatorPressed = false;
+// let equalPressed = false;
+// digitKeys.forEach((key) => {
+//     key.addEventListener("click", () => {
+//         if(equalPressed){
+//             expression = "";
+//             equalPressed = false;
+//         }
+//         if(expression.length < 20 && key.value != "clear" && key.value != "all-clear"){
+//             expression += key.value;
+//             calculatorScreen.value = expression;
+//         }
+//     });
+// });
+
+// operatorKeys.forEach((key) => {
+//     key.addEventListener("click", () => {
+//         if (key.value == "=") {
+//             if(expression.length < 20){
+//                 let expressionArray = expression.split(operator);
+//                 if(expressionArray.length > 1){
+//                     let num1 = parseInt(expressionArray[0]);
+//                     let num2 = parseInt(expressionArray[1]);
+//                     switch(operator){
+//                         case "+":
+//                             result = num1 + num2;
+//                             break;
+//                         case "-":
+//                             result = num1 - num2;
+//                             break;
+//                         case "x":
+//                             result = num1 * num2;
+//                             break;
+//                         case "/":
+//                             result = num1 / num2;
+//                             break;
+//                         default:
+//                             result = "Error";
+//                     }
+//                     expression = result;
+//                     calculatorScreen.value = result;
+//                     operatorPressed = false;
+//                     equalPressed = true;
+//                 }
+//             }
+//         }else {
+//             if(expression.length < 20){
+//                 if(operatorPressed){
+//                     expression = expression.slice(0, expression.length - 1);
+//                 }
+//                 expression += key.value;
+//                 calculatorScreen.value = expression;
+//                 operatorPressed = true;
+//                 operator = key.value;
+//             }
+//         }
+//     });
+// });
+
+// document.querySelector(".all-clear").addEventListener("click", () => {
+//     expression = "";
+//     calculatorScreen.value = expression;
+//     operatorPressed = false;
+//     equalPressed = false;
+// });
+
+// document.querySelector(".clear").addEventListener("click", () => {
+//     if(expression.length > 0){
+//         expression = expression.slice(0, expression.length - 1);
+//         calculatorScreen.value = expression;
+//     }
+// });
