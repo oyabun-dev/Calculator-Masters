@@ -5,21 +5,24 @@ const title = document.querySelector(".title");
 const calculatorScreen = document.querySelector(".calculator-screen-input");
 const digitKeys = document.querySelectorAll(".digits");
 const operatorKeys = document.querySelectorAll(".operator");
+let expression = "";
+let result = "";
+let operator = "";
 
 modeBtn.addEventListener("click", () => {
-  if(document.body.classList.contains("light")){
-    document.body.classList.replace("light", "dark");
-    modeBtn.style.backgroundColor = "var(--bg-dark)";
-    modeDisc.classList.replace("light", "dark");
-    title.classList.replace("light", "dark");
-    calculatorScreen.classList.replace("light", "dark");
-} else {
-    document.body.classList.replace("dark", "light");
-    modeBtn.style.backgroundColor = "var(--bg-light)";
-    modeDisc.classList.replace("dark", "light");
-    title.classList.replace("dark", "light");
-    calculatorScreen.classList.replace("dark", "light");
-}
+    if (document.body.classList.contains("light")) {
+        document.body.classList.replace("light", "dark");
+        modeBtn.style.backgroundColor = "var(--bg-dark)";
+        modeDisc.classList.replace("light", "dark");
+        title.classList.replace("light", "dark");
+        calculatorScreen.classList.replace("light", "dark");
+    } else {
+        document.body.classList.replace("dark", "light");
+        modeBtn.style.backgroundColor = "var(--bg-light)";
+        modeDisc.classList.replace("dark", "light");
+        title.classList.replace("dark", "light");
+        calculatorScreen.classList.replace("dark", "light");
+    }
     digitKeys.forEach((key) => {
         key.classList.contains("light")?key.classList.replace("light", "dark"):key.classList.replace("dark", "light");
     });
@@ -27,10 +30,6 @@ modeBtn.addEventListener("click", () => {
         key.classList.contains("light")?key.classList.replace("light", "dark"):key.classList.replace("dark", "light");
     });
 });
-
-let expression = "";
-let result = "";
-let operator = "";
 
 digitKeys.forEach((key) => {
     key.addEventListener('click', () => {
