@@ -13,7 +13,7 @@
 
 # Installation
   To install the calculator, simply download or clone the repository and open the index.html file in your web browser.
-  git clone https://github.com/your-username/simple-calculator.git
+  git clone https://github.com/oyabun-dev/Calculator-Masters.git
 
 # Technologies Used
   HTML
